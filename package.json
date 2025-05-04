@@ -1,0 +1,17 @@
+{
+    "name": "prova",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "operators": "node character_parse.js",
+        "enemies": "node enemy_parse.js",
+        "story": "node story_parse.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "fs": "^0.0.1-security"
+    }
+}
