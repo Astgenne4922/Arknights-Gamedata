@@ -42,7 +42,11 @@ const full_json = [
     if (code === "char_002_amiya") {
         acc[code].files =
             handbookDict?.storyTextAudio.reduce((files, file) => {
-                if (file.stories[0].unLockType === "PATCH" || file.storyTitle === "？？？")
+                if (
+                    !file.stories[0].patchIdList.includes(code) ||
+                    file.stories[0].unLockType === "PATCH" ||
+                    file.storyTitle === "？？？"
+                )
                     return files;
                 files.push({
                     title: file.storyTitle,
@@ -54,7 +58,8 @@ const full_json = [
         acc[code].files =
             handbook_info_table.handbookDict["char_002_amiya"]?.storyTextAudio.reduce(
                 (files, file) => {
-                    if (file.stories[0].unLockParam !== code) return files;
+                    if (!file.stories[0].patchIdList.includes(code) || file.storyTitle === "？？？")
+                        return files;
                     files.push({
                         title: file.storyTitle,
                         body: file.stories[0].storyText,
