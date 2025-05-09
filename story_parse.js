@@ -19,7 +19,7 @@ story_review_table.forEach(([code, storyObject]) => {
         type: storyObject.entryType,
     });
 
-    const acc = {
+    const story = {
         name: storyObject.name,
         type: storyObject.entryType,
         parts: storyObject.infoUnlockDatas.reduce((parts, e) => {
@@ -48,25 +48,40 @@ story_review_table.forEach(([code, storyObject]) => {
 
             switch (e.avgTag) {
                 case "Before Operation":
-                    parts[e[key]].before = e.storyTxt;
-                    parts[e[key]].dependence = dependence;
+                    parts[e[key]].before = e.storyTxt.split("/").at(-1);
+                    parts[e[key]].dependence = dependence ?? null;
                     break;
                 case "After Operation":
-                    parts[e[key]].after = e.storyTxt;
-                    if (parts[e[key]].before === null) parts[e[key]].dependence = dependence;
+                    parts[e[key]].after = e.storyTxt.split("/").at(-1);
+                    if (parts[e[key]].before === null)
+                        parts[e[key]].dependence = dependence ?? null;
                     break;
                 case "Interlude":
-                    parts[e[key]].interlude = e.storyTxt;
-                    parts[e[key]].dependence = dependence;
+                    parts[e[key]].interlude = e.storyTxt.split("/").at(-1);
+                    parts[e[key]].dependence = dependence ?? null;
                     break;
             }
+
+            fetch(`${BASE_URL}/story/${e.storyTxt}.txt`)
+                .then((res) => res.text())
+                .then((text) => {
+                    fs.mkdirSync(`./stories/${code}/scripts`, {
+                        recursive: true,
+                    });
+                    fs.writeFile(
+                        `./stories/${code}/scripts/${e.storyTxt.split("/").at(-1) ?? null}.txt`,
+                        text,
+                        "utf-8",
+                        () => {}
+                    );
+                });
 
             return parts;
         }, {}),
     };
 
     fs.mkdirSync(`./stories/${code}`, { recursive: true });
-    fs.writeFile(`./stories/${code}/story.json`, JSON.stringify(acc, null, 4), "utf-8", () => {});
+    fs.writeFile(`./stories/${code}/story.json`, JSON.stringify(story, null, 4), "utf-8", () => {});
 });
 
 fs.mkdirSync("./stories", { recursive: true });
