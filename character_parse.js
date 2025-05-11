@@ -216,12 +216,12 @@ const filters = { rarities: [], classes: [], subClasses: [], factions: [] };
         else character.modules = null;
 
         outer_array.push({
-            code: character.code,
+            code: code,
             name: character.name,
             rarity: character.rarity,
-            profession: character.class,
-            subProfessionId: character.subClass,
-            nationId: character.faction,
+            class: character.class,
+            subClass: character.subClass,
+            faction: character.faction,
         });
 
         if (!filters.rarities.includes(character.rarity)) filters.rarities.push(character.rarity);

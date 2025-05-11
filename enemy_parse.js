@@ -101,7 +101,7 @@ Object.entries(enemy_handbook_table.enemyData).forEach(([code, enemyObject]) => 
         }, {});
 
     outer_array.push({
-        code: enemy.code,
+        code: code,
         name: enemy.name,
         rank: enemy.rank,
         categories: enemy.categories,
