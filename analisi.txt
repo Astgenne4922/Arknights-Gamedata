@@ -1,0 +1,498 @@
+-----------------------------------------------------------------------------------------
+DIALOGHI
+-----------------------------------------------------------------------------------------
+*name* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+- Linea di dialogo
+- Se solo testo e' narrazione senza nome
+#########################################################################################
+*dialog* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+- Inizia una scena di dialogo
+- Tecnicamente ha parametri ma mi sa che li ignoro 
+$ fadetime
+$ time
+$ block
+#########################################################################################
+*decision* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+- Bottoni di scelta
+- massimo 3
+- minimo 1
+$ options -> testo nei bottoni separato da ;
+$ values -> valori usati da "predicate"
+#########################################################################################
+*predicate* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+- Segnala le aree da eseguire o skippare dopo un "decision"
+- Dopo le sezioni opzionali c'e' sempre un predicate che referenzia tutte le opzioni per capire da dove riprendere il flow
+$ references -> usa i "values" di "decision"
+#########################################################################################
+*multiline*
+- Testo che continua sulla stessa box con diversi comandi
+- Simile a "name"
+$ name -> chi sta parlando
+$ delay -> tempo per il typing
+$ end -> segna la fine della box di testo
+#########################################################################################
+*subtitle*
+- Testo su schermo con coords libere
+$ text -> il testo (puo contenere rich text [ho trovato per ora solo <i> e <color>])
+$ x -> indovina
+$ y -> patate
+$ alignment -> text alignment
+$ size -> font?
+$ delay -> tempo per il typing
+$ width -> max width?
+$ block -> probabilmente un errore in quanto c'e' solo una volta
+#########################################################################################
+*sticker*
+- Testo con coordinate 
+- A differenza di subtitle ce ne puo essere piu di uno a schermo
+- ogni sticker ha un id 
+- se non si specifica il testo rimuove lo sticker con quell'id
+$ id -> wow
+$ text -> come subtitle
+$ x -> oddio
+$ y -> eh moh
+$ alignment -> come subtitle
+$ size -> font?
+$ delay -> tempo per il typing
+$ width -> max width?
+$ duration -> fade in/out
+$ block -> forza un click per andare avanti
+$ multi -> fa comportare l'id come un multiline
+$ fadetime -> come duration
+$ hidelog -> se true non si visualizza nel riepilogo (ignora)
+#########################################################################################
+*stickerclear*
+- Rimuove tutti gli sticker 
+-----------------------------------------------------------------------------------------
+PERSONAGGI
+-----------------------------------------------------------------------------------------
+*character* XXX
+- Personaggi a schermo
+- massimo 2
+$ fadetime/fedetime/fadeitme/fadetim/fadtime/fadetiem/fatetime -> fade in/out
+$ name/name1/nameage -> char 1
+$ name2 -> char 2
+$ focus -> character in focus
+$ block/blo/blockl/blok -> forza il click se true
+$ blackstart/blackstart1 -> partenza in percentuale di overlay nero su pg1
+$ blackend/blackend1 -> fine in percentuale di overleay nero su pg1
+$ enter -> direzioni di entrata in fade in pg1
+$ enter2 -> direzioni di entrata in fade in pg2
+$ blackstart2 -> partenza in percentuale di overlay nero su pg1
+$ blackend2 -> fine in percentuale di overleay nero su pg1
+$ time -> boh ignora
+$ fadeout -> ignora (solo in uno script)
+$ delay -> ignora (solo in uno script)
+$ slot -> ignora (solo in uno script)
+$ screenadapt -> ignora (solo in uno script)
+$ duration -> ignora (solo in uno script)
+$ exit2 -> direzioni di uscita in fade out pg2
+#########################################################################################
+*charslot*
+- Personaggi a schermo
+- un solo personaggio con specificata la posizione
+- anche senza pg animando lo slot
+$ slot -> l, m, n?, r
+$ name -> img char
+$ posfrom/pfrom -> start position for animation
+$ posto -> end position for animation
+$ afrom -> alpha start for animation
+$ ato -> alpha end for animaation
+$ duration/duraiton -> animation duration
+$ isblock -> obbliga la fine dell'animazione per andare avanti
+$ focus/ocus/foucs -> focus su slot (n = nessuno)
+$ action -> jump, shake, zoom
+$ random -> boh no indea
+$ power -> "potenza" dell'azione
+$ times -> repeat dell'azione
+$ block -> forza il click se true
+$ bstart/bstrart -> partenza in percentuale di overlay nero su pg
+$ bend -> fine in percentuale di overleay nero su pg1
+$ poszoom -> posizione in percentuale di partenza dello zoom
+$ scale -> zoom scale
+$ end -> ignora
+$ delay -> ignora
+$ grad -> ignora
+$ fadetime -> ignora
+$ blocker -> ignora
+#########################################################################################
+*characteraction*
+- Usato insieme a "character" per animare i pg
+$ name -> lato da animare
+$ type -> azioni: exit, jump, move, shake, zoom
+$ xpos -> displacement orizzontale
+$ fadetime -> fade in/out
+$ block -> forza il click se true
+$ power -> forza animazione
+$ times -> repeat animazione
+$ ypos/y -> displacement verticale
+$ isblock -> obbliga la fine dell'animazione per andare avanti
+$ delay -> ignora
+$ scale -> zoom scale
+$ direction -> exit direction
+#########################################################################################
+*charactercutin*
+- Personaggio in chiamata telefonica
+$ widgetID -> id del cutin, specificando solo questo viene rimosso
+$ name -> png del pg
+$ style -> sembra essere sempre settato su "cutin"
+$ fadestyle -> sembra essere sempre settato su "horizontal_expand_center"
+$ fadetime -> fade in/out
+$ offsetx -> displacement dal centro
+$ width -> larghezza cutin
+$ block -> forza il click se true
+$ povX -> displacement del pg nel riquadro?
+-----------------------------------------------------------------------------------------
+IMMAGINI
+-----------------------------------------------------------------------------------------
+*background* XXX
+- Immagine di background
+$ image -> nome png
+$ fadetime -> fade in/out
+$ block -> forza il click se true
+$ screenadapt -> coverall/showall (da capire la differenza)
+$ x -> offset x del png
+$ y -> offset x del png
+$ xScale/xscale/xSclae -> zoom x del png
+$ yScale/yscale/ysclae -> zoom y del png
+$ duration -> ignora
+$ width -> sempre 1
+$ height -> sempre 1
+$ ypos -> ignora
+$ time -> ignora
+#########################################################################################
+*backgroundtween*
+- Trasformazione del background
+$ xFrom/xfrom/x -> posizione x di partenza
+$ xTo/xto -> posizione x di arrivo
+$ duration -> durata trasformazione
+$ ease/else -> volendo ignorabile 90% settata su OutCubic
+$ block -> blocca fino alla fine dell'animazione
+$ xScaleFrom/xScale -> scala x di partenza
+$ yScaleFrom/yScale -> scale y di partenza
+$ xScaleTo -> scala x di arrivo
+$ yScaleTo/yScaleto -> scala y di arrivo
+$ yFrom/y -> posizione y di partenza
+$ yTo/yto -> posizione y di arrivo
+$ fadetime -> ignora usato solo 4 volte
+$ image -> sempre la stessa del background precedente
+$ screenadapt -> ignora
+#########################################################################################
+*image* XXX
+- immagine in sovrimpressione
+$ image -> nome png
+$ x/xTo/xFrom -> offset x del png
+$ y/yTo/yFrom -> offset x del png
+$ xScale/xScaleFrom/xScaleTo -> zoom x del png
+$ yScale/yScaleFrom/yScaleTo/yScaleT -> zoom y del png
+$ fadetime -> fade in/out
+$ screenadapt -> ignora
+$ block -> aspetta l'animazione
+$ time -> ignora
+$ xpos -> ignora
+$ ypos -> ignora
+$ layer -> ignora
+$ tiled -> ignora
+$ ease -> ignora
+$ width -> ignora
+$ height -> ignora
+#########################################################################################
+*imagetween* XXX
+- Trasformazione graduale di un immagine
+$ xFrom/xfrom/x -> posizione x di partenza
+$ yFrom/yfrom/y -> posizione y di partenza
+$ xTo/xto/xTO -> posizione x di arrivo
+$ yTo/yTO/yto/yT -> posizione y di arrivo
+$ xScaleFrom/xfromScale/xScale -> scala x di partenza
+$ yScaleFrom/yfromScale/yScale -> scale y di partenza
+$ xScaleTo -> scala x di arrivo
+$ yScaleTo -> scala y di arrivo
+$ duration -> durata animazione
+$ block -> aspetta l'animazione
+$ ease -> tipo di interpolazione
+$ image -> ignora
+$ tiled -> ignora
+$ fadetime -> fade in/out
+$ screenadapt -> ignora
+#########################################################################################
+*showitem*
+- Mostra una piccola immagine in sovraimpressione
+- Le immagini appaiono come i cutin espandendosi dal centro
+- Bordo grosso bianco
+$ image -> png
+$ fadetime -> fade in
+$ fadestyle -> ignora
+$ offsetx -> ignora
+$ width -> ignora
+$ style -> ignora
+#########################################################################################
+*hideitem*
+- Rimuove "showitem"
+$ fadetime -> fadeout
+$ block -> sempre true
+#########################################################################################
+*largebg*
+- Nome di merda in realta' e' la combinazione di 1 png per fare un solo bg
+- Il secondo png parte direttamente dal lato destro del primo
+$ imagegroup -> nomi dei png separati da /
+$ solidwidth -> width dei png separati da /
+$ solidheight -> height dei png, per qualche motivo e' sempre singolo
+$ x -> punto in cui posizionare la x del centro del primo png relativamente al centro del canvas
+$ fadetime -> fadein
+$ y -> punto in cui posizionare la y del centro del primo png relativamente al centro del canvas
+#########################################################################################
+*largebgtween*
+- Animazione di "largebg"
+- Usato anche per "gridbg" e "verticalbg"
+- L'unica difficolta' e' di spostare e scalare 2 o 4 immagini
+$ xFrom/xfrom -> x di partenza
+$ xTo -> x di arrivo
+$ duration -> durata animazione
+$ ease -> stile animazione
+$ block -> aspetta fine animazione
+$ yFrom -> y di partenza
+$ yTo -> y di arrivo
+$ xScaleFrom -> zoom x di partenza
+$ xScaleTo -> zoom x di arrivo
+$ yScaleFrom -> zoom y di partenza
+$ yScaleTo -> zoom y di arrivo
+#########################################################################################
+*cgitem*
+- Simile a "showitem" e "image"
+$ image -> png
+$ style -> sempre cg
+$ pfrom -> point di partenza
+$ pto -> point di arrivo
+$ pduration -> durata traslazione
+$ layer -> layer usato da tutti gli effetti
+$ afrom -> alpha di partenza
+$ ato -> alpha di arrivo
+$ aduration -> durata trasparenza
+$ sfrom -> scale di partenza
+$ sto -> scale di arrivo
+$ sduration -> durata zoom
+#########################################################################################
+*hidecgitem*
+- Rimuove "cgitem"
+- Se image non e' specificato toglie tutto
+$ fadetime -> fadeout
+$ image -> la cg da togliere
+#########################################################################################
+*imgeffect*
+- animazione da un immagine ad un altra
+- per ora solo in babel st 2 quando si apre il sarcofago
+$ name -> effetto da utilizzare (NON SO SE E DOVE SI TROVA NELLA REPO)
+$ image -> immagine a cui arrivare
+#########################################################################################
+*animtext*
+- La nuova animazione al cambio di setting con la bussola
+- Il content e' suddiviso in <p={n}> paragrafi
+- Medium e' p=2
+$ id -> pare sia sempre uguale, ma in futuro potrebbe essere riutilizzato per altre anim
+$ name -> cartella asset
+$ style -> avg_both/avg_only_medium
+$ pos -> offset dal centro
+$ block -> sempre false per ora
+#########################################################################################
+*animtextclean*
+- Rimuove "animtext"
+- Per ora niente parametri
+#########################################################################################
+*gridbg*
+- Nome un po migliore, bg composto da 4 immagini a griglia
+$ imagegroup -> nomi dei png separati da /
+$ solidwidth -> width dei png separate da /
+$ solidheight -> height dei png separate da /
+$ x -> punto in cui posizionare la x del centro del png l1 relativamente al centro del canvas, da capire il default
+$ fadetime -> fade in/out
+$ y -> punto in cui posizionare la x del centro del png l1 relativamente al centro del canvas, da capire il default 
+$ xScale -> scala x, da capire
+$ yScale -> scala y, da capire
+#########################################################################################
+*imagerotate*
+- Ruota "image"
+- Separato da "imagetween" perche' lui non e' in grado
+$ angle -> rotazione
+$ fadetime -> durata
+$ block/isblock -> aspetta animazione
+#########################################################################################
+*verticalbg*
+- Nome ottimo sta volta, "largebg" ma in verticale
+$ imagegroup -> nomi dei png separati da /
+$ solidwidth -> width dei png separate da /
+$ solidheight -> height dei png separate da /
+$ x -> punto in cui posizionare la x del centro del png l1 relativamente al centro del canvas, da capire il default
+$ y -> punto in cui posizionare la y del centro del png l1 relativamente al centro del canvas, da capire il default 
+-----------------------------------------------------------------------------------------
+AZIONI E TRANSIZIONI
+-----------------------------------------------------------------------------------------
+*delay* XXX
+- Sleep
+$ time/TIME/timw/times/tinme/yime/timr
+$ block -> ignora, dato che blocca di default altrimenti non serve
+$ title_test -> ignora
+$ fadetime -> ignora
+#########################################################################################
+*blocker* XXX
+- Schermo colorato
+- Da capire bene i default
+- Da capire come cazzo funzionano i colori che sembra che ogni tanto usa i 255 ogni tanto 0-1
+$ a -> aplha da raggiungere
+$ r -> red da raggiungere
+$ g -> green da raggiungere
+$ b -> blue da raggiungere
+$ fadetime -> fade
+$ block/isblock -> aspetta animazione
+$ afrom -> alpha iniziale
+$ rfrom -> red iniziale
+$ gfrom -> green iniziale
+$ bfrom -> blue iniziale
+$ initr -> non ne ho idea e' sempre settato a 2 se c'e' ma non so cosa fa
+$ style -> settato solo su slider se presente
+$ inverse -> insieme a slider
+$ image -> immagine da usare al posto dei colori
+$ ease -> se settato e' su InOutCubic
+#########################################################################################
+*camerashake*
+- Vibra schermo
+- Capire se c'e' una differenza tra block e fadeout
+$ duration -> durata animazione
+$ xstrength -> potenza x
+$ ystrength -> potenza y
+$ vibrato -> numero da capire
+$ randomness -> deviazione
+$ block -> aspetta animazione
+$ fadeout -> se aspettare la fine oppure no
+$ fadetime -> durata post-animazione?
+$ stop -> ferma qualsiasi camera shake in corso
+$ delay -> ignora
+$ focus -> ignora
+$ strength -> ignora
+#########################################################################################
+*cameraeffect*
+- Effetto sull'intera scena
+$ effect -> solo greyscale
+$ amount -> percentuale di greyscale
+$ keep -> se mantenere o no l'effetto
+$ fadetime -> durata animazione
+$ block -> aspetta animazione?
+$ initamount -> percentuale di greyscale di partenza 
+#########################################################################################
+*effect*
+- Animazione generica (attacchi, flash...)
+$ name -> nome asset
+$ x -> posizione orizzontale
+$ y -> posizione verticale
+$ rox -> rotazione orizzontale
+$ roy -> rotazione verticale
+$ roz -> rotazione su terzo asse
+$ layer -> layer usato da tutti gli effetti
+$ delay -> da capire se pre o post
+$ ypos -> solo in uno script senza le altre coordinate
+$ z -> posizione in profondita'
+$ xTo -> x di arrivo, solo in uno script
+$ movetime -> tempo di animazione in combo con xTo
+#########################################################################################
+*bgeffect*
+- Effetto continuo
+$ name -> nome asset
+$ layer -> layer usato da tutti gli effetti
+$ x -> posizione orizzontale
+$ flip -> se c'e' e' a 1, boh
+$ delay -> pre o post?
+$ xto -> x di arrivo
+$ yto -> y di arrivo
+$ movetime -> tempo di movimento in combo con xto e yto
+$ fade -> se c'e' e' true
+$ fadetime -> durata?
+$ y -> posizione verticale
+$ duration -> solo in uno script ma relativamente recente
+#########################################################################################
+*timersticker*
+- Fa apparire un timer in tempo reale a schermo
+$ x -> posizione orizzontale
+$ y -> posizione verticale
+$ width -> larghezza
+$ size -> font
+$ time -> tempo massimo
+#########################################################################################
+*timerclear*
+- Ferma e rimuove "timersticker"
+$ afrom -> alpha di partenza
+$ ato -> alpha di arrivo
+$ duration -> durata animazione
+#########################################################################################
+*theater*
+- Modalita' teatro
+- Completamente inutile: in gico disattiva semplicemente il log e i tasti auto e toggleui
+$ mode =-> attiva/disattiva
+-----------------------------------------------------------------------------------------
+MUSICA E SUONI
+-----------------------------------------------------------------------------------------
+*playmusic*
+- Start musica
+$ intro -> prima parte questa
+$ key -> finita l'intro loopa questa
+$ volume/volu7me -> percentuale di volume
+$ crossfade -> gergo tecnico audio?
+$ delay -> wait dopo la partenza
+$ fadetime -> come delay?
+$ crosstime -> boh
+#########################################################################################
+*stopmusic*
+- Ferma la musica
+$ fadetime/faddetime/fadeetime/fdetime -> fade out
+$ time -> come fadetime?
+$ block -> aspetta la fine
+$ crossfade -> boh, solo in uno script
+#########################################################################################
+*playsound*
+- Starta un suono
+$ key -> nome asset
+$ volume/voluyme -> percentuale di volume
+$ block -> aspetta fine
+$ delay/Delay/delai -> delay post comando
+$ loop -> indovina
+$ channel -> distinzione per non sovrapporre?
+$ fadetime -> durata loop?
+$ crosstime -> boh, solo in uno script
+$ crossfade -> boh, solo in uno script
+#########################################################################################
+*stopsound*
+- Ferma un suono
+$ channel ->  canale da fermare
+$ fadetime -> fadeout?
+$ isblock -> aspetta la fine
+$ duration -> come fadetime?, solo in uno script
+#########################################################################################
+*musicvolume*
+- Cambia volume della musica
+$ volume -> nuovo volume
+$ fadetime -> durata transizione
+$ channel -> ignora, la musica non ha canale
+#########################################################################################
+*soundvolume*
+- Cambia volume di un canale
+$ channel -> canale da modificare
+$ volume -> nuovo volume
+$ fadetime -> durata transizione
+-----------------------------------------------------------------------------------------
+BOH
+-----------------------------------------------------------------------------------------
+*curtain*
+- Da esplorare
+$ direction -> per qualche motivo e' un numero
+$ fillfrom -> no idea
+$ fillto -> no idea
+$ fadetime -> durata transizione
+$ block -> aspetta fine
+$ grad -> boh
+$ a -> trasparenza?
+#########################################################################################
+*focusout*
+#########################################################################################
+*interlude*
+#########################################################################################
+*video*
+- Starta un video
+$ res -> nome video

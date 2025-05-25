@@ -1,13 +1,13 @@
 [
     // Se senza parametri resettano la scena rispettiva
-    "header",
+    "header", // apparentemente inutile
     "dialog", // Inizia una scena di dialogo (NO PARAMETRI)
     "playmusic", // Start musica
     "delay", // ?? Sleep (time=1)
     "name", // Nome di chi sta parlando nel dialogo (="???")
     "blocker", // ?? Schermo nero (a=0, r=0, g=0, b=0, fadetime=0, block=true)
-    "character",
-    "image",
+    "character", // Personaggi a schermo, 1 o 2, se 2 specifica il focus
+    "image", // ?? immagine in sovrimpressione
     "imagetween", // Trasformazione graduale di un immagine
     "background", // Immagine di background (image="bg_iceforest_2",screenadapt="coverall")
     "stopmusic", // Ferma la musica (NO PARAMETRI)
@@ -16,7 +16,7 @@
     "showitem",
     "hideitem",
     "cameraeffect",
-    "decision",
+    "decision", // Risposta a scelta
     "predicate",
     "subtitle",
     "characteraction",
@@ -56,8 +56,8 @@
     "cgitem",
     "hidecgitem",
     "imgeffect", // animezione da un immagine ad un altra, per ora solo in babel st 2
-    "animtext",
-    "animtextclean",
+    "animtext", // La nuova animazione al cambio di setting con la bussola
+    "animtextclean", // Rimuove l'animazione
     "skiptothis", // Solo in 0_welcome_to_guide e 2_guide_to_home
     "startbattle", // Solo in 0_welcome_to_guide
     "tutorial", // Solo in 0_welcome_to_guide
