@@ -1,0 +1,62 @@
+*name* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Linea di dialogo
+- Se solo testo e' narrazione senza nome
+---------------------------------------------------------------------------------------------------------------------------------
+*dialog* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Inizia una scena di dialogo
+- Tecnicamente ha parametri ma mi sa che li ignoro 
+$ fadetime
+$ time
+$ block
+---------------------------------------------------------------------------------------------------------------------------------
+*decision* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Bottoni di scelta
+- massimo 3
+- minimo 1
+$ options -> testo nei bottoni separato da ;
+$ values -> valori usati da "predicate"
+---------------------------------------------------------------------------------------------------------------------------------
+*predicate* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Segnala le aree da eseguire o skippare dopo un "decision"
+- Dopo le sezioni opzionali c'e' sempre un predicate che referenzia tutte le opzioni per capire da dove riprendere il flow
+$ references -> usa i "values" di "decision"
+---------------------------------------------------------------------------------------------------------------------------------
+*multiline* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Testo che continua sulla stessa box con diversi comandi
+- Simile a "name"
+$ name -> chi sta parlando
+$ delay -> tempo per il typing
+$ end -> segna la fine della box di testo
+---------------------------------------------------------------------------------------------------------------------------------
+*subtitle* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Testo su schermo con coords libere
+$ text -> il testo (puo contenere rich text [ho trovato per ora solo <i> e <color>])
+$ x -> indovina
+$ y -> patate
+$ alignment -> text alignment
+$ size -> font?
+$ delay -> tempo per il typing
+$ width -> max width?
+$ block -> probabilmente un errore in quanto c'e' solo una volta
+---------------------------------------------------------------------------------------------------------------------------------
+*sticker* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Testo con coordinate 
+- A differenza di subtitle ce ne puo essere piu di uno a schermo
+- ogni sticker ha un id 
+- se non si specifica il testo rimuove lo sticker con quell'id
+$ id -> wow
+$ text -> come subtitle
+$ x -> oddio (in multi usa quelle precedenti)
+$ y -> eh moh
+$ alignment -> come subtitle (default left)
+$ size -> font? (default 24)
+$ delay -> tempo per il typing (default 25ms)
+$ width -> max width? (c'e' sempre ma se multi puo' usare quella di prima)
+$ duration -> durata fade in/out (default 0)
+$ block -> forza un click per andare avanti (default true)
+$ multi -> fa comportare l'id come un multiline (default false)
+$ fadetime -> come duration
+$ hidelog -> se true non si visualizza nel riepilogo (ignora)
+---------------------------------------------------------------------------------------------------------------------------------
+*stickerclear* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+- Rimuove tutti gli sticker 

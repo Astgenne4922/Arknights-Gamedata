@@ -1,32 +1,27 @@
 import fs from "fs";
 
-const regex = /\[(\w*)(?:\(.*\)|=".*"|)\]/gm;
-const commands = [];
+const analisi = {};
 try {
     const dir = await fs.promises.opendir("./stories");
     for await (const dirent of dir) {
         if (dirent.isDirectory()) {
             const story = await fs.promises.opendir(`./stories/${dirent.name}/scripts`);
-            console.log(`./stories/${dirent.name}/scripts`);
             for await (const file of story) {
-                const str = fs.readFileSync(`./stories/${dirent.name}/scripts/${file.name}`);
-                let m;
+                const str = fs.readFileSync(`./stories/${dirent.name}/scripts/${file.name}`, "utf-8");
 
-                while ((m = regex.exec(str)) !== null) {
-                    if (m.index === regex.lastIndex) {
-                        regex.lastIndex++;
-                    }
-
-                    m.slice(1).forEach((match, groupIndex) => {
-                        if (!commands.includes(match.toLowerCase()))
-                            commands.push(match.toLowerCase());
+                for (const line of str.split("\n")) {
+                    let match = line.match(/^\[(\w+)(?:\((.*)\))?\](?:\s*(.+))?$/);
+                    if (match?.[1]?.toLowerCase() !== "sticker") continue;
+                    if (!match?.[2]) continue;
+                    let check = false;
+                    [...(match?.[2]?.matchAll(/(\w+)\s*=\s*(?:"([^"]*)"|([^",\s]*))/g) ?? [])].forEach((p) => {
+                        if (p[1] === "delay") check = true;
                     });
+                    if (!check) console.log(line);
                 }
             }
         }
     }
-
-    fs.writeFileSync("./commands.json", JSON.stringify(commands, null, 4));
 } catch (err) {
     console.error(err);
 }

@@ -1,0 +1,178 @@
+*background* 
+- Immagine di background
+$ image -> nome png
+$ fadetime -> fade in/out
+$ block -> forza la fine dell'animazione per andare avanti
+$ screenadapt -> coverall/showall (da capire la differenza)
+$ x -> offset x del png
+$ y -> offset x del png
+$ xScale/xscale/xSclae -> zoom x del png
+$ yScale/yscale/ysclae -> zoom y del png
+$ duration -> ignora
+$ width -> sempre 1
+$ height -> sempre 1
+$ ypos -> ignora
+$ time -> ignora
+#################################################################################################################################
+*backgroundtween*
+- Trasformazione del background
+$ xFrom/xfrom/x -> posizione x di partenza
+$ xTo/xto -> posizione x di arrivo
+$ duration -> durata trasformazione
+$ ease/else -> volendo ignorabile 90% settata su OutCubic
+$ block -> blocca fino alla fine dell'animazione
+$ xScaleFrom/xScale -> scala x di partenza
+$ yScaleFrom/yScale -> scale y di partenza
+$ xScaleTo -> scala x di arrivo
+$ yScaleTo/yScaleto -> scala y di arrivo
+$ yFrom/y -> posizione y di partenza
+$ yTo/yto -> posizione y di arrivo
+$ fadetime -> ignora usato solo 4 volte
+$ image -> sempre la stessa del background precedente
+$ screenadapt -> ignora
+#################################################################################################################################
+*image* 
+- immagine in sovrimpressione
+$ image -> nome png
+$ x/xTo/xFrom -> offset x del png
+$ y/yTo/yFrom -> offset x del png
+$ xScale/xScaleFrom/xScaleTo -> zoom x del png
+$ yScale/yScaleFrom/yScaleTo/yScaleT -> zoom y del png
+$ fadetime -> fade in/out
+$ screenadapt -> ignora
+$ block -> aspetta l'animazione
+$ time -> ignora
+$ xpos -> ignora
+$ ypos -> ignora
+$ layer -> ignora
+$ tiled -> ignora
+$ ease -> ignora
+$ width -> ignora
+$ height -> ignora
+#################################################################################################################################
+*imagetween* 
+- Trasformazione graduale di un immagine
+$ xFrom/xfrom/x -> posizione x di partenza
+$ yFrom/yfrom/y -> posizione y di partenza
+$ xTo/xto/xTO -> posizione x di arrivo
+$ yTo/yTO/yto/yT -> posizione y di arrivo
+$ xScaleFrom/xfromScale/xScale -> scala x di partenza
+$ yScaleFrom/yfromScale/yScale -> scale y di partenza
+$ xScaleTo -> scala x di arrivo
+$ yScaleTo -> scala y di arrivo
+$ duration -> durata animazione
+$ block -> aspetta l'animazione
+$ ease -> tipo di interpolazione
+$ image -> ignora
+$ tiled -> ignora
+$ fadetime -> fade in/out
+$ screenadapt -> ignora
+#################################################################################################################################
+*showitem*
+- Mostra una piccola immagine in sovraimpressione
+- Le immagini appaiono come i cutin espandendosi dal centro
+- Bordo grosso bianco
+$ image -> png
+$ fadetime -> fade in
+$ fadestyle -> ignora
+$ offsetx -> ignora
+$ width -> ignora
+$ style -> ignora
+#################################################################################################################################
+*hideitem*
+- Rimuove "showitem"
+$ fadetime -> fadeout
+$ block -> sempre true
+#################################################################################################################################
+*largebg*
+- Nome di merda in realta' e' la combinazione di 1 png per fare un solo bg
+- Il secondo png parte direttamente dal lato destro del primo
+$ imagegroup -> nomi dei png separati da /
+$ solidwidth -> width dei png separati da /
+$ solidheight -> height dei png, per qualche motivo e' sempre singolo
+$ x -> punto in cui posizionare la x del centro del primo png relativamente al centro del canvas
+$ fadetime -> fadein
+$ y -> punto in cui posizionare la y del centro del primo png relativamente al centro del canvas
+#################################################################################################################################
+*largebgtween*
+- Animazione di "largebg"
+- Usato anche per "gridbg" e "verticalbg"
+- L'unica difficolta' e' di spostare e scalare 2 o 4 immagini
+$ xFrom/xfrom -> x di partenza
+$ xTo -> x di arrivo
+$ duration -> durata animazione
+$ ease -> stile animazione
+$ block -> aspetta fine animazione
+$ yFrom -> y di partenza
+$ yTo -> y di arrivo
+$ xScaleFrom -> zoom x di partenza
+$ xScaleTo -> zoom x di arrivo
+$ yScaleFrom -> zoom y di partenza
+$ yScaleTo -> zoom y di arrivo
+#################################################################################################################################
+*cgitem*
+- Simile a "showitem" e "image"
+$ image -> png
+$ style -> sempre cg
+$ pfrom -> point di partenza
+$ pto -> point di arrivo
+$ pduration -> durata traslazione
+$ layer -> layer usato da tutti gli effetti
+$ afrom -> alpha di partenza
+$ ato -> alpha di arrivo
+$ aduration -> durata trasparenza
+$ sfrom -> scale di partenza
+$ sto -> scale di arrivo
+$ sduration -> durata zoom
+#################################################################################################################################
+*hidecgitem*
+- Rimuove "cgitem"
+- Se image non e' specificato toglie tutto
+$ fadetime -> fadeout
+$ image -> la cg da togliere
+#################################################################################################################################
+*imgeffect*
+- animazione da un immagine ad un altra
+- per ora solo in babel st 2 quando si apre il sarcofago
+$ name -> effetto da utilizzare (NON SO SE E DOVE SI TROVA NELLA REPO)
+$ image -> immagine a cui arrivare
+#################################################################################################################################
+*animtext*
+- La nuova animazione al cambio di setting con la bussola
+- Il content e' suddiviso in <p={n}> paragrafi
+- Medium e' p=2
+$ id -> pare sia sempre uguale, ma in futuro potrebbe essere riutilizzato per altre anim
+$ name -> cartella asset
+$ style -> avg_both/avg_only_medium
+$ pos -> offset dal centro
+$ block -> sempre false per ora
+#################################################################################################################################
+*animtextclean*
+- Rimuove "animtext"
+- Per ora niente parametri
+#################################################################################################################################
+*gridbg*
+- Nome un po migliore, bg composto da 4 immagini a griglia
+$ imagegroup -> nomi dei png separati da /
+$ solidwidth -> width dei png separate da /
+$ solidheight -> height dei png separate da /
+$ x -> punto in cui posizionare la x del centro del png l1 relativamente al centro del canvas, da capire il default
+$ fadetime -> fade in/out
+$ y -> punto in cui posizionare la x del centro del png l1 relativamente al centro del canvas, da capire il default 
+$ xScale -> scala x, da capire
+$ yScale -> scala y, da capire
+#################################################################################################################################
+*imagerotate*
+- Ruota "image"
+- Separato da "imagetween" perche' lui non e' in grado
+$ angle -> rotazione
+$ fadetime -> durata
+$ block/isblock -> aspetta animazione
+#################################################################################################################################
+*verticalbg*
+- Nome ottimo sta volta, "largebg" ma in verticale
+$ imagegroup -> nomi dei png separati da /
+$ solidwidth -> width dei png separate da /
+$ solidheight -> height dei png separate da /
+$ x -> punto in cui posizionare la x del centro del png l1 relativamente al centro del canvas, da capire il default
+$ y -> punto in cui posizionare la y del centro del png l1 relativamente al centro del canvas, da capire il default 

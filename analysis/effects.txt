@@ -1,0 +1,47 @@
+*playmusic*
+- Start musica
+$ intro -> prima parte questa
+$ key -> finita l'intro loopa questa
+$ volume/volu7me -> percentuale di volume
+$ crossfade -> gergo tecnico audio?
+$ delay -> wait dopo la partenza
+$ fadetime -> come delay?
+$ crosstime -> boh
+#################################################################################################################################
+*stopmusic*
+- Ferma la musica
+$ fadetime/faddetime/fadeetime/fdetime -> fade out
+$ time -> come fadetime?
+$ block -> aspetta la fine
+$ crossfade -> boh, solo in uno script
+#################################################################################################################################
+*playsound*
+- Starta un suono
+$ key -> nome asset
+$ volume/voluyme -> percentuale di volume
+$ block -> aspetta fine
+$ delay/Delay/delai -> delay post comando
+$ loop -> indovina
+$ channel -> distinzione per non sovrapporre?
+$ fadetime -> durata loop?
+$ crosstime -> boh, solo in uno script
+$ crossfade -> boh, solo in uno script
+#################################################################################################################################
+*stopsound*
+- Ferma un suono
+$ channel ->  canale da fermare
+$ fadetime -> fadeout?
+$ isblock -> aspetta la fine
+$ duration -> come fadetime?, solo in uno script
+#################################################################################################################################
+*musicvolume*
+- Cambia volume della musica
+$ volume -> nuovo volume
+$ fadetime -> durata transizione
+$ channel -> ignora, la musica non ha canale
+#################################################################################################################################
+*soundvolume*
+- Cambia volume di un canale
+$ channel -> canale da modificare
+$ volume -> nuovo volume
+$ fadetime -> durata transizione

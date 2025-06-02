@@ -1,0 +1,76 @@
+*character* 
+- Personaggi a schermo
+- massimo 2
+$ fadetime/fedetime/fadeitme/fadetim/fadtime/fadetiem/fatetime -> fade in/out
+$ name/name1/nameage -> char 1
+$ name2 -> char 2
+$ focus -> character in focus
+$ block/blo/blockl/blok -> forza il click se true
+$ blackstart/blackstart1 -> partenza in percentuale di overlay nero su pg1
+$ blackend/blackend1 -> fine in percentuale di overleay nero su pg1
+$ enter -> direzioni di entrata in fade in pg1
+$ enter2 -> direzioni di entrata in fade in pg2
+$ blackstart2 -> partenza in percentuale di overlay nero su pg1
+$ blackend2 -> fine in percentuale di overleay nero su pg1
+$ time -> boh ignora
+$ fadeout -> ignora (solo in uno script)
+$ delay -> ignora (solo in uno script)
+$ slot -> ignora (solo in uno script)
+$ screenadapt -> ignora (solo in uno script)
+$ duration -> ignora (solo in uno script)
+$ exit2 -> direzioni di uscita in fade out pg2
+#################################################################################################################################
+*charslot*
+- Personaggi a schermo
+- un solo personaggio con specificata la posizione
+- anche senza pg animando lo slot
+$ slot -> l, m, n?, r
+$ name -> img char
+$ posfrom/pfrom -> start position for animation
+$ posto -> end position for animation
+$ afrom -> alpha start for animation
+$ ato -> alpha end for animaation
+$ duration/duraiton -> animation duration
+$ isblock -> obbliga la fine dell'animazione per andare avanti
+$ focus/ocus/foucs -> focus su slot (n = nessuno)
+$ action -> jump, shake, zoom
+$ random -> boh no indea
+$ power -> "potenza" dell'azione
+$ times -> repeat dell'azione
+$ block -> forza il click se true
+$ bstart/bstrart -> partenza in percentuale di overlay nero su pg
+$ bend -> fine in percentuale di overleay nero su pg1
+$ poszoom -> posizione in percentuale di partenza dello zoom
+$ scale -> zoom scale
+$ end -> ignora
+$ delay -> ignora
+$ grad -> ignora
+$ fadetime -> ignora
+$ blocker -> ignora
+#################################################################################################################################
+*characteraction*
+- Usato insieme a "character" per animare i pg
+$ name -> lato da animare
+$ type -> azioni: exit, jump, move, shake, zoom
+$ xpos -> displacement orizzontale
+$ fadetime -> fade in/out
+$ block -> forza il click se true
+$ power -> forza animazione
+$ times -> repeat animazione
+$ ypos/y -> displacement verticale
+$ isblock -> obbliga la fine dell'animazione per andare avanti
+$ delay -> ignora
+$ scale -> zoom scale
+$ direction -> exit direction
+#################################################################################################################################
+*charactercutin*
+- Personaggio in chiamata telefonica
+$ widgetID -> id del cutin, specificando solo questo viene rimosso
+$ name -> png del pg
+$ style -> sembra essere sempre settato su "cutin"
+$ fadestyle -> sembra essere sempre settato su "horizontal_expand_center"
+$ fadetime -> fade in/out
+$ offsetx -> displacement dal centro
+$ width -> larghezza cutin
+$ block -> forza il click se true
+$ povX -> displacement del pg nel riquadro?

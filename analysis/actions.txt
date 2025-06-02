@@ -1,0 +1,100 @@
+*delay* 
+- Sleep
+$ time/TIME/timw/times/tinme/yime/timr
+$ block -> ignora, dato che blocca di default altrimenti non serve
+$ title_test -> ignora
+$ fadetime -> ignora
+#################################################################################################################################
+*blocker* 
+- Schermo colorato
+- Da capire bene i default
+- Da capire come cazzo funzionano i colori che sembra che ogni tanto usa i 255 ogni tanto 0-1
+$ a -> aplha da raggiungere
+$ r -> red da raggiungere
+$ g -> green da raggiungere
+$ b -> blue da raggiungere
+$ fadetime -> fade
+$ block/isblock -> aspetta animazione
+$ afrom -> alpha iniziale
+$ rfrom -> red iniziale
+$ gfrom -> green iniziale
+$ bfrom -> blue iniziale
+$ initr -> non ne ho idea e' sempre settato a 2 se c'e' ma non so cosa fa
+$ style -> settato solo su slider se presente
+$ inverse -> insieme a slider
+$ image -> immagine da usare al posto dei colori
+$ ease -> se settato e' su InOutCubic
+#################################################################################################################################
+*camerashake*
+- Vibra schermo
+- Capire se c'e' una differenza tra block e fadeout
+$ duration -> durata animazione
+$ xstrength -> potenza x
+$ ystrength -> potenza y
+$ vibrato -> numero da capire
+$ randomness -> deviazione
+$ block -> aspetta animazione
+$ fadeout -> se aspettare la fine oppure no
+$ fadetime -> durata post-animazione?
+$ stop -> ferma qualsiasi camera shake in corso
+$ delay -> ignora
+$ focus -> ignora
+$ strength -> ignora
+#################################################################################################################################
+*cameraeffect*
+- Effetto sull'intera scena
+$ effect -> solo greyscale
+$ amount -> percentuale di greyscale
+$ keep -> se mantenere o no l'effetto
+$ fadetime -> durata animazione
+$ block -> aspetta animazione?
+$ initamount -> percentuale di greyscale di partenza 
+#################################################################################################################################
+*effect*
+- Animazione generica (attacchi, flash...)
+$ name -> nome asset
+$ x -> posizione orizzontale
+$ y -> posizione verticale
+$ rox -> rotazione orizzontale
+$ roy -> rotazione verticale
+$ roz -> rotazione su terzo asse
+$ layer -> layer usato da tutti gli effetti
+$ delay -> da capire se pre o post
+$ ypos -> solo in uno script senza le altre coordinate
+$ z -> posizione in profondita'
+$ xTo -> x di arrivo, solo in uno script
+$ movetime -> tempo di animazione in combo con xTo
+#################################################################################################################################
+*bgeffect*
+- Effetto continuo
+$ name -> nome asset
+$ layer -> layer usato da tutti gli effetti
+$ x -> posizione orizzontale
+$ flip -> se c'e' e' a 1, boh
+$ delay -> pre o post?
+$ xto -> x di arrivo
+$ yto -> y di arrivo
+$ movetime -> tempo di movimento in combo con xto e yto
+$ fade -> se c'e' e' true
+$ fadetime -> durata?
+$ y -> posizione verticale
+$ duration -> solo in uno script ma relativamente recente
+#################################################################################################################################
+*timersticker*
+- Fa apparire un timer in tempo reale a schermo
+$ x -> posizione orizzontale
+$ y -> posizione verticale
+$ width -> larghezza
+$ size -> font
+$ time -> tempo massimo
+#################################################################################################################################
+*timerclear*
+- Ferma e rimuove "timersticker"
+$ afrom -> alpha di partenza
+$ ato -> alpha di arrivo
+$ duration -> durata animazione
+#################################################################################################################################
+*theater*
+- Modalita' teatro
+- Completamente inutile: in gico disattiva semplicemente il log e i tasti auto e toggleui
+$ mode =-> attiva/disattiva
