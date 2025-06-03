@@ -1,34 +1,34 @@
-*name* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *name*
 - Linea di dialogo
 - Se solo testo e' narrazione senza nome
 ---------------------------------------------------------------------------------------------------------------------------------
-*dialog* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *dialog*
 - Inizia una scena di dialogo
 - Tecnicamente ha parametri ma mi sa che li ignoro 
 $ fadetime
 $ time
 $ block
 ---------------------------------------------------------------------------------------------------------------------------------
-*decision* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *decision*
 - Bottoni di scelta
 - massimo 3
 - minimo 1
 $ options -> testo nei bottoni separato da ;
 $ values -> valori usati da "predicate"
 ---------------------------------------------------------------------------------------------------------------------------------
-*predicate* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *predicate*
 - Segnala le aree da eseguire o skippare dopo un "decision"
 - Dopo le sezioni opzionali c'e' sempre un predicate che referenzia tutte le opzioni per capire da dove riprendere il flow
 $ references -> usa i "values" di "decision"
 ---------------------------------------------------------------------------------------------------------------------------------
-*multiline* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *multiline*
 - Testo che continua sulla stessa box con diversi comandi
 - Simile a "name"
 $ name -> chi sta parlando
 $ delay -> tempo per il typing
 $ end -> segna la fine della box di testo
 ---------------------------------------------------------------------------------------------------------------------------------
-*subtitle* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *subtitle*
 - Testo su schermo con coords libere
 $ text -> il testo (puo contenere rich text [ho trovato per ora solo <i> e <color>])
 $ x -> indovina
@@ -39,7 +39,7 @@ $ delay -> tempo per il typing
 $ width -> max width?
 $ block -> probabilmente un errore in quanto c'e' solo una volta
 ---------------------------------------------------------------------------------------------------------------------------------
-*sticker* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *sticker*
 - Testo con coordinate 
 - A differenza di subtitle ce ne puo essere piu di uno a schermo
 - ogni sticker ha un id 
@@ -58,5 +58,5 @@ $ multi -> fa comportare l'id come un multiline (default false)
 $ fadetime -> come duration
 $ hidelog -> se true non si visualizza nel riepilogo (ignora)
 ---------------------------------------------------------------------------------------------------------------------------------
-*stickerclear* VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+[x] *stickerclear*
 - Rimuove tutti gli sticker 

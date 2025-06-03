@@ -1,4 +1,4 @@
-*character* 
+[ ] *character*
 - Personaggi a schermo
 - massimo 2
 $ fadetime/fedetime/fadeitme/fadetim/fadtime/fadetiem/fatetime -> fade in/out
@@ -19,8 +19,8 @@ $ slot -> ignora (solo in uno script)
 $ screenadapt -> ignora (solo in uno script)
 $ duration -> ignora (solo in uno script)
 $ exit2 -> direzioni di uscita in fade out pg2
-#################################################################################################################################
-*charslot*
+---------------------------------------------------------------------------------------------------------------------------------
+[ ] *charslot*
 - Personaggi a schermo
 - un solo personaggio con specificata la posizione
 - anche senza pg animando lo slot
@@ -47,8 +47,8 @@ $ delay -> ignora
 $ grad -> ignora
 $ fadetime -> ignora
 $ blocker -> ignora
-#################################################################################################################################
-*characteraction*
+---------------------------------------------------------------------------------------------------------------------------------
+[ ] *characteraction*
 - Usato insieme a "character" per animare i pg
 $ name -> lato da animare
 $ type -> azioni: exit, jump, move, shake, zoom
@@ -62,8 +62,8 @@ $ isblock -> obbliga la fine dell'animazione per andare avanti
 $ delay -> ignora
 $ scale -> zoom scale
 $ direction -> exit direction
-#################################################################################################################################
-*charactercutin*
+---------------------------------------------------------------------------------------------------------------------------------
+[ ] *charactercutin*
 - Personaggio in chiamata telefonica
 $ widgetID -> id del cutin, specificando solo questo viene rimosso
 $ name -> png del pg
